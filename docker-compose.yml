@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: dbm
+    image: postgres
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    ports:
+      - '5433:5433'
+  migration:
+    build: .
+    command: ["./wait-for-it.sh", "db:5433", "--", "python", "manage.py", "migrate"]
+    environment:
+      - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  load_fixtures:
+    build: .
+    command: ["./wait-for-it.sh", "migration:8888", "--", "python", "manage.py", "loaddata", "fixture.json"]
+    environment:
+      - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
+    volumes:
+      - .:/app
+    depends_on:
+      - migration
+  web:
+    container_name: webm
+    build: .
+    command: ["./wait-for-it.sh", "db:5433", "--", "python", "manage.py", "runserver", "0.0.0.0:8888"]
+    environment:
+      - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
+    volumes:
+      - .:/app
+    ports:
+      - "8888:8888"
+    depends_on:
+      - db
+      - migration
+      - load_fixtures
