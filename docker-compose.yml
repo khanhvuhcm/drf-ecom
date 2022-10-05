@@ -7,10 +7,10 @@ services:
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
     ports:
-      - '5433:5433'
+      - '5432:5432'
   migration:
     build: .
-    command: ["./wait-for-it.sh", "db:5433", "--", "python", "manage.py", "migrate"]
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "manage.py", "migrate"]
     environment:
       - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
     volumes:
@@ -19,7 +19,7 @@ services:
       - db
   load_fixtures:
     build: .
-    command: ["./wait-for-it.sh", "migration:8888", "--", "python", "manage.py", "loaddata", "fixture.json"]
+    command: ["./wait-for-it.sh", "migration:8000", "--", "python", "manage.py", "loaddata", "fixture.json"]
     environment:
       - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
     volumes:
@@ -29,13 +29,13 @@ services:
   web:
     container_name: webm
     build: .
-    command: ["./wait-for-it.sh", "db:5433", "--", "python", "manage.py", "runserver", "0.0.0.0:8888"]
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"]
     environment:
       - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
     volumes:
       - .:/app
     ports:
-      - "8888:8888"
+      - "8000:8000"
     depends_on:
       - db
       - migration
