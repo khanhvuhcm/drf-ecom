@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'api.product',
     'api.user',
     'api.order',
-    'api.payment',
 ]
 
 MIDDLEWARE = [
@@ -130,12 +129,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-
 # Location that holds user-uploaded files.
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL that handles the media files served from MEDIA_ROOT.
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = "user.CustomUser"
 

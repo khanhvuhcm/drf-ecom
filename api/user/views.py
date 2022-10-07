@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import UserSerializer
 from .models import CustomUser
 from django.http import JsonResponse
@@ -16,7 +16,7 @@ import re
 def generate_session_token(length=10):
     char_list = [chr(i) for i in range(97, 123)]
     int_list = [str(i) for i in range(10)]
-    
+
     # Create a unique token
     return ''.join(random.SystemRandom().choice(char_list + int_list) for _ in range(length))
 
@@ -77,7 +77,7 @@ def signout(request, id):
         user.session_token = "0"
         user.save()
         logout(request)
-    
+
     except UserModel.DoesNotExist:
         return JsonResponse({'error': 'Invalid User ID'})
 
@@ -85,19 +85,20 @@ def signout(request, id):
 
 # User Permission View
 class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     permission_classes_by_action = {'create' : [AllowAny]}
     queryset = CustomUser.objects.all().order_by('id')
     serializer_class = UserSerializer
 
     def get_permissions(self):
         try:
-            # Return permission_classes depending on `action` 
+            # Return permission_classes depending on `action`
             return [permission() for permission in self.permission_classes_by_action[self.action]]
 
         except KeyError:
             # If action is not set return default permission_classes
             return [permission() for permission in self.permission_classes]
-        
+
 
 
 
