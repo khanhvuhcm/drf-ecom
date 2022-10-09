@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True, null=True)),
                 ('updated_at', models.DateTimeField(auto_now=True, null=True)),
                 ('price', models.CharField(max_length=50)),
-                ('stock', models.CharField(max_length=50)),
+                ('quantity', models.CharField(max_length=50)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='products/%Y/%m/%d')),
                 ('is_active', models.BooleanField(default=True)),
                 ('featured', models.BooleanField(default=True)),
