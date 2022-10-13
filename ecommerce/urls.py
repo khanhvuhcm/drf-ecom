@@ -41,8 +41,14 @@ urlpatterns = [
     # path('api-documentation/', schema_view),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('rest_framework.urls')),
+    #path('accounts/', include('rest_framework.urls')),
     path('api/', include('api.urls')),
+    # path('accounts/', include('api.accounts.urls')),
+    path('auth/', include('rest_framework.urls')),
+    # path('product/', include('product.urls')),
+    # path('cart/', include('cart.urls')),
+    # path('checkout/', include('order.urls')),
+    # path('profiles/', include('billing.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

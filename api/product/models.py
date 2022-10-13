@@ -31,3 +31,6 @@ class Product(models.Model):
     def is_available(self):
         return self.quantity > 0
 
+    def set_featured(self, status):
+        self.featured = status
+        return self.save()

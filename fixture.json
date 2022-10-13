@@ -1,4 +1,20 @@
 [
+  {
+    "model": "billing.billingprofile",
+    "pk": 1,
+    "fields": {
+      "name": "Billing Profile 1",
+      "email": "bl1@site.com",
+      "address_line_1": "Addr line 1",
+      "address_line_2": "Addr line 2",
+      "city": "HCM",
+      "state": "HCM",
+      "country_code": "AF",
+      "pincode": "12345",
+      "timestamp": "2022-01-01T13:20:30+03:00",
+      "user_id": 1
+    }
+  },
   { "model": "category.category", "pk": 1, "fields": { "name": "Plants", "description": "Desc for Plants" } },
   {
     "model": "product.product",
