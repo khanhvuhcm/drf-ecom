@@ -5,6 +5,6 @@ from django.http import JsonResponse
 # Create your views here.
 
 def home(request):
-    return JsonResponse({'info':"Django React Ecommerce Project", 'developer':"Mahmud Sajib"})
+    return JsonResponse({'info':"Django Drf Ecommerce Project", 'developer':"Khanhvuh"})
 
 

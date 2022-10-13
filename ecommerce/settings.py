@@ -56,7 +56,9 @@ INSTALLED_APPS = [
     'api.product',
     'api.user',
     'api.order',
-    'api.payment',
+    'api.accounts',
+    'api.billing',
+    'api.cart',
 ]
 
 MIDDLEWARE = [
@@ -130,12 +132,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-
 # Location that holds user-uploaded files.
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL that handles the media files served from MEDIA_ROOT.
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = "user.CustomUser"
 
@@ -147,10 +148,11 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ]

@@ -1,1 +1,0 @@
-[{"model": "product.product", "pk": 1, "fields": {"name": "prod 1", "slug": "prod-1", "description": "desc prod 1", "created_at": "2022-10-03T03:43:26.528Z", "updated_at": "2022-10-03T03:43:26.528Z", "price": "100", "stock": "1", "image": "", "is_active": true, "featured": false, "category": [1]}}]

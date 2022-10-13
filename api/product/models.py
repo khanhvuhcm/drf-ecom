@@ -11,7 +11,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
     price = models.CharField(max_length=50)
-    stock = models.CharField(max_length=50)
+    quantity = models.CharField(max_length=50)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)  # is product featured?
@@ -29,5 +29,8 @@ class Product(models.Model):
 
     @property
     def is_available(self):
-        return self.stock > 0
+        return self.quantity > 0
 
+    def set_featured(self, status):
+        self.featured = status
+        return self.save()

@@ -19,7 +19,7 @@ services:
       - db
   load_fixtures:
     build: .
-    command: ["./wait-for-it.sh", "migration:8000", "--", "python", "manage.py", "loaddata", "fixture.json"]
+    command: ["./wait-for-it.sh", "migration:5432", "--", "python", "manage.py", "loaddata", "fixture.json"]
     environment:
       - "DJANGO_SETTINGS_MODULE=ecommerce.settings"
     volumes:

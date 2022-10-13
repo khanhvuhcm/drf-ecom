@@ -1,4 +1,20 @@
 [
+  {
+    "model": "billing.billingprofile",
+    "pk": 1,
+    "fields": {
+      "name": "Billing Profile 1",
+      "email": "bl1@site.com",
+      "address_line_1": "Addr line 1",
+      "address_line_2": "Addr line 2",
+      "city": "HCM",
+      "state": "HCM",
+      "country_code": "AF",
+      "pincode": "12345",
+      "timestamp": "2022-01-01T13:20:30+03:00",
+      "user_id": 1
+    }
+  },
   { "model": "category.category", "pk": 1, "fields": { "name": "Plants", "description": "Desc for Plants" } },
   {
     "model": "product.product",
@@ -9,7 +25,7 @@
       "description": "Maecenas ut massa quis augue luctus tincidunt. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
       "image": "product/images/Apricot_globemallow.jpg",
       "price": "30.65",
-      "stock": 38,
+      "quantity": 38,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -24,7 +40,7 @@
       "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
       "image": "product/images/Cone_Peak_Bedstraw.jpg",
       "price": "30.72",
-      "stock": 97,
+      "quantity": 97,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -39,7 +55,7 @@
       "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
       "image": "product/images/Blutaparon.jpg",
       "price": "14.05",
-      "stock": 10,
+      "quantity": 10,
       "featured": false,
       "category": [1]
     }
@@ -53,7 +69,7 @@
       "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
       "image": "product/images/Chamisso_Sedge.jpeg",
       "price": "8.80",
-      "stock": 17,
+      "quantity": 17,
       "featured": false,
       "category": [1]
     }
@@ -67,7 +83,7 @@
       "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
       "image": "product/images/Marsh_Straw_Sedge.jpg",
       "price": "17.21",
-      "stock": 91,
+      "quantity": 91,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -82,7 +98,7 @@
       "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum",
       "image": "product/images/Largeflower_False_Rosemary.jpg",
       "price": "8.46",
-      "stock": 96,
+      "quantity": 96,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -97,7 +113,7 @@
       "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
       "image": "product/images/Oregon_Bleeding_Heart.jpg",
       "price": "39.31",
-      "stock": 43,
+      "quantity": 43,
       "featured": false,
       "category": [1]
     }
@@ -111,7 +127,7 @@
       "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
       "image": "product/images/Pore_Lichen.jpg",
       "price": "6.80",
-      "stock": 14,
+      "quantity": 14,
       "featured": false,
       "category": [1]
     }
@@ -125,7 +141,7 @@
       "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
       "image": "product/images/chinese_haw.jpg",
       "price": "10.72",
-      "stock": 67,
+      "quantity": 67,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -140,7 +156,7 @@
       "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nullam varius. Nulla facilisi.",
       "image": "product/images/Toringo_Crab.jpg",
       "price": "23.86",
-      "stock": 59,
+      "quantity": 59,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -155,7 +171,7 @@
       "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
       "image": "product/images/Kauai_Hau_Kuahiwi.jpg",
       "price": "20.38",
-      "stock": 87,
+      "quantity": 87,
       "featured": false,
       "category": [1]
     }
@@ -169,7 +185,7 @@
       "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
       "image": "product/images/Pygmy_Goldenweed.jpeg",
       "price": "32.75",
-      "stock": 48,
+      "quantity": 48,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -184,7 +200,7 @@
       "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl.",
       "image": "product/images/Red-vein_Yellow_Loosestrife.jpg",
       "price": "33.14",
-      "stock": 12,
+      "quantity": 12,
       "featured": false,
       "category": [1]
     }
@@ -198,7 +214,7 @@
       "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl",
       "image": "product/images/Isachne.jpg",
       "price": "30.33",
-      "stock": 66,
+      "quantity": 66,
       "featured": true,
       "is_active": true,
       "category": [1]
@@ -213,7 +229,7 @@
       "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
       "image": "product/images/Santo_Domingo_False_Willow.jpg",
       "price": "8.55",
-      "stock": 10,
+      "quantity": 10,
       "featured": true,
       "is_active": true,
       "category": [1]
